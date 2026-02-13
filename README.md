@@ -1,52 +1,74 @@
-# 💝 Valentine's Day Proposal
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Will You Handle My Miscellaneous Expenses?</title>
 
-Demo: https://my-valentine-day-gift.netlify.app/
+<style>
+body{
+    text-align:center;
+    font-family:Arial, sans-serif;
+    background:#ffccd5;
+    margin-top:100px;
+}
 
-A fun, interactive React application designed to prank your special someone on Valentine's Day! 
+h1{
+    color:#b30059;
+}
 
-## ✨ Features
+button{
+    padding:12px 25px;
+    font-size:18px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    margin:10px;
+}
 
-- **Playful "no" Button**: The "no" button is elusive! It moves away when hovered and changes its text to tease the user ("Please yes 🥰", "think again 😃").
-- **The "yes" Button Twist**: Clicking "No" is actually the way to proceed... but wait for the surprise!
-- **will you handle my miscellaneous expenses**: Instead of a romantic acceptance, the user is greeted with an "kanna'ah surukatha" message and a funny video.
-- **Visual Effects**: 
-  - Floating hearts background animation.
-  - Continuous confetti celebration on the success screen.
-  - Glassmorphism card design.
-- **Responsive Design**: Works on desktop and mobile (though chasing the button is more fun with a mouse!).
+#yes{
+    background-color:green;
+    color:white;
+}
 
-## 🛠️ Built With
+#no{
+    background-color:red;
+    color:white;
+    position:absolute;
+}
+#videoBox{
+    display:none;
+    margin-top:30px;
+}
+</style>
+</head>
 
-- **React** (Vite)
-- **Canvas Confetti** for celebrations
-- **CSS3** for animations and styling
+<body>
 
-## 🚀 How to Run
+<h1>Will You Handle My Miscellaneous Expenses? 💸😜</h1>
 
-1.  **Clone the repository**:
-    ```bash
-    git clone https://github.com/your-username/valentines-day.git
-    cd valentines-day
-    ```
+<button id="yes" onclick="playVideo()">Yes 😍</button>
+<button id="no" onmouseover="moveNo()">No 🙈</button>
 
-2.  **Install dependencies**:
-    ```bash
-    npm install
-    ```
+<div id="videoBox">
+    <h2>I knew you would say YES ❤️</h2>
+    <video width="400" controls autoplay>
+        <source src="video.mp4" type="video/mp4">
+    </video>
+</div>
 
-3.  **Run the development server**:
-    ```bash
-    npm run dev
-    ```
+<script>
+function moveNo(){
+    let btn = document.getElementById("no");
+    let x = Math.random() * (window.innerWidth - 100);
+    let y = Math.random() * (window.innerHeight - 100);
+    btn.style.left = x + "px";
+    btn.style.top = y + "px";
+}
 
-4.  Open your browser and navigate to the local host URL (usually `http://localhost:5173`).
+function playVideo(){
+    document.getElementById("videoBox").style.display="block";
+}
+</script>
 
-## 📝 Customization
-
-- **Video**: Replace `src/assets/vid.mp4` with your own video file.
-- **Text**: Update the messages in `src/App.jsx` to personalize the name and prank text.
-- **Images**: You can swap the favicon in `public/heart.svg`.
-
-Enjoy pranking! 💖😂
-
-
+</body>
+</html>
