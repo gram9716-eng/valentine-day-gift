@@ -1,52 +1,81 @@
-# 💝 Valentine's Day Proposal Prank App
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Will You Handle My Miscellaneous Expenses? 😜</title>
 
-Demo: https://my-valentine-day-gift.netlify.app/
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+            margin-top: 100px;
+            overflow: hidden;
+        }
 
-A fun, interactive React application designed to prank your special someone on Valentine's Day! 
+        h1 {
+            color: white;
+            font-size: 35px;
+        }
 
-## ✨ Features
+        button {
+            padding: 12px 25px;
+            font-size: 18px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin: 10px;
+        }
 
-- **Playful "Yes" Button**: The "Yes" button is elusive! It moves away when hovered and changes its text to tease the user ("Please No 🥰", "think again 😃").
-- **The "No" Button Twist**: Clicking "No" is actually the way to proceed... but wait for the surprise!
-- **April Fool Prank**: Instead of a romantic acceptance, the user is greeted with an "April Fool" message and a funny video.
-- **Visual Effects**: 
-  - Floating hearts background animation.
-  - Continuous confetti celebration on the success screen.
-  - Glassmorphism card design.
-- **Responsive Design**: Works on desktop and mobile (though chasing the button is more fun with a mouse!).
+        #yesBtn {
+            background-color: #28a745;
+            color: white;
+        }
 
-## 🛠️ Built With
+        #noBtn {
+            background-color: #dc3545;
+            color: white;
+            position: absolute;
+        }
 
-- **React** (Vite)
-- **Canvas Confetti** for celebrations
-- **CSS3** for animations and styling
+        #videoSection {
+            display: none;
+            margin-top: 30px;
+        }
 
-## 🚀 How to Run
+        video {
+            width: 400px;
+            border-radius: 15px;
+        }
+    </style>
+</head>
 
-1.  **Clone the repository**:
-    ```bash
-    git clone https://github.com/your-username/valentines-day.git
-    cd valentines-day
-    ```
+<body>
 
-2.  **Install dependencies**:
-    ```bash
-    npm install
-    ```
+    <h1>Will You Handle My Miscellaneous Expenses? 💸😜</h1>
 
-3.  **Run the development server**:
-    ```bash
-    npm run dev
-    ```
+    <button id="yesBtn" onclick="showVideo()">Yes 😍</button>
+    <button id="noBtn" onmouseover="moveButton()">No 🙈</button>
 
-4.  Open your browser and navigate to the local host URL (usually `http://localhost:5173`).
+    <div id="videoSection">
+        <h2>Hehe… I knew it! ❤️</h2>
+        <video controls autoplay>
+            <source src="love.mp4" type="video/mp4">
+        </video>
+    </div>
 
-## 📝 Customization
+<script>
+    function moveButton() {
+        var button = document.getElementById("noBtn");
+        var x = Math.random() * (window.innerWidth - 100);
+        var y = Math.random() * (window.innerHeight - 100);
+        button.style.left = x + "px";
+        button.style.top = y + "px";
+    }
 
-- **Video**: Replace `src/assets/vid.mp4` with your own video file.
-- **Text**: Update the messages in `src/App.jsx` to personalize the name and prank text.
-- **Images**: You can swap the favicon in `public/heart.svg`.
+    function showVideo() {
+        document.getElementById("videoSection").style.display = "block";
+    }
+</script>
 
-Enjoy pranking! 💖😂
-
-
+</body>
+</html>
